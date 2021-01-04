@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<title>COMPLY</title>
+<script src="content/sketch_191128z/libraries/p5.min.js"></script> 
+<script src="content/sketch_191128z/sketch_191128z.js"></script>
+<meta charset="utf-8">
+<style type="text/css">
+body, td, th {
+    color: #FFFFFF;
+    font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+}
+body {
+    background-color: #000000;
+}
+.zoom:hover {
+    transition: transform .1s;
+    transform: scale(1.15);
+}
+</style>
+</head>
+<body>
+<!-- <audio autoplay src="content/ransomnote.mp3"></audio> -->
+<div width="600" height="400" id="sketchz" style="border: thick #FFFFFF; position: absolute; top: 15px; left: 350px;" ></div>
+<img style="position: absolute; left: 350px; top: 15px;" src="content/lilframe.png" width="600" height="400" alt=""/>
+<p id="demo" style="position: absolute; left: 234px; top: 421px; width: 834px; height: 257px;" align="justify"></p>
+<div style="position: absolute; left: 1020px; top: 96px; width: 292px; height: 265px;" id="madison"></div>
+<script>
+var i = 0;
+var txt = 'Hello.As you can imagine, your account ||||||||||||||||||||||| has been hacked.I have downloaded all the confidential information from your system and have obtained additional evidence.The most interesting thing I have discovered is the video recordings of your masturbation.I uploaded my Virus on a porn website, then you installed it on your operating system. When you clicked on the Play on porn video button, at that moment, my Virus was downloaded on your computer.After the installation, the front view camera takes a video every time you masturbate.The software collected all of your contact information on social media and email addresses.If you need to erase all of your collected data, answer my 20 questions with honesty. From the moment the letter is read, the clock is ticking. You have 2 days (48 hours) after reading this letter.As soon as you complete the questionnaire, your data will be automatically destroyed. Otherwise, all of your correspondance and video i will receive will automatically be sent to all the contacts available on your device at the time of the infection. Goodbye!';
+var speed = 1;
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+	typeWriter()
+	
+		function closewindow() {
+		Window.close();
+	}
+	
+	setTimeout(add_img, 15000);
+
+    function add_img() {
+document.getElementById("madison").innerHTML = "<a href= 'content/Finalo.html'><img class='zoom' src='content/Go.png' height='228' width='304'></a>"
+}
+	
+</script>
+</body>
+</html>

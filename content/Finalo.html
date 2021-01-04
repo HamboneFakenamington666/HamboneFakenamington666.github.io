@@ -1,0 +1,235 @@
+<!doctype html>
+<html>
+  <head>
+    <title>RANSOMWARE QUESTIONNAIRE</title>
+	  <script src="sketch_191128a/libraries/p5.min.js"></script>
+	  <script src="sketch_191128a/sketch_191128a.js"></script>
+  <meta charset="utf-8">
+  <style type="text/css">
+  body,td,th {
+    color: #FFFFFF;
+    font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+    font-size: 24px;
+}
+body {
+    background-color: #000000;
+}
+	  .zoom:hover {
+  transition: transform .1s;
+  transform: scale(1.15); 
+}
+  </style>
+  </head>
+  <body>
+	  <audio style="position: absolute; left: 179px; top: 93px;"  autoplay><source src="Dead HEART.mp3" type="audio/mpeg"></audio>
+	  <div width="600" height="400" id="sketch" style="border: thick #FFFFFF; position: absolute; top: 20px; left: 100px;" ></div>
+  <img style="position: absolute; left: 100px; top: 20px; width:1200" src="frame.png" alt="FRM"/>
+  <img class="zoom" style="position: absolute; width: 200px; height: 200px; left: 441px; top: 470px;" src="Arrow2.png" alt="GO RIGHT" onclick="clikk()"/>
+  <img class="zoom" style="position: absolute; width: 200px; height: 200px; left: 150px; top: 470px;" src="Arrow.png" alt="GO RIGHT" onclick="clikk()"/>
+
+<script>
+var y = 1;
+var position = 1;
+	
+	var questions = [
+    "Are you afraid of God?",
+	"Do you believe that the alignment of celestial bodies has an influence on human behavior?",
+"Do you fear germs and diseases ?",
+"Have you ever told lies in Court ?",
+"Have you ever been a spy for an organization ?",
+"Have you ever had anything to do with a baby farm ?",
+"Have you ever controlled people ?",
+"Have you ever been a member of the Communist Party ?",
+"Do you know a dead langage ?",
+"Have you ever pretended to be sick ?",
+"Have you ever been mean, or cruel, to an animal, bird or fish ?",
+"Do you have a secret ?",
+"Have you ever felt that your parents and home weren’t good enough for you ?",
+"Have you ever made fun of another because of the way he looked ?",
+"Have you ever felt ashamed of your friends ?",
+"Have you ever spied on anyone ?",
+"Have you ever thought someone was crazy ?",
+"Have you ever broken a friendship ?",
+"Have you ever made a planet or nation radioactive ?",
+"Have you ever zapped anyone ?",
+"Have you ever enslaved a population?",
+		"Are you sitting in a chair?",
+		"Are all cats black?",
+		"Are you on the moon?",
+		"Have you ever drunk water?",
+		"Are you holding up a tree?",
+		"Are you a table?",
+		"Have you ever lived or worked under an assumed name?",
+		"Are you here for a different purpose than you say?",
+		"Have you ever stolen anything?",
+		"Have you ever forged someone else's signature?",
+		"Have you ever blackmailed anybody?",
+		"Have you ever been blackmailed?",
+		"Have you ever smuggled anything?",
+		"Have you ever been in prison?",
+		"Have you ever indulged in drunkenness?",
+		"Have you ever done any reckless driving?",
+		"Have you ever burglarized any place?",
+		"Have you ever embezzled money?",
+		"Have you ever assaulted anyone?",
+		"Have you ever been in jail?",
+		"Have you ever had anythind to do with pornography?",
+		"Have you ever committed arson?",
+		"Have you ever been a drug addict?",
+		"Have you ever peddled dope?",
+		"Have you had any dealings with stolen goods?",
+		"Do you have a police record?",
+		"Have you ever raped anyone?",
+		"Have you ever been involved in an abortion?",
+		"Have you ever committed adultery?",
+		"Have you ever practiced homosexuality?",
+		"Have you ever had intercourse with a member of your family?",
+		"Have you ever committed culpable homicide?",
+		"Have you ever bombed anything?",
+		"Have you ever kidnapped anyone?",
+		"Have you ever done any illicit diamond buying?",
+		"Have you ever betrayed anyone for money?",
+		"Have you ever threatened anyone with a firearm?",
+		"Have you ever been in illegal possession of firearms?",
+		"Have you ever been paid for giving evidence?",
+		"Have you ever destroyed something belonging to someone else?",
+		"Have you ever been a newspaper reporter?",
+		"Have you ever had intercourse while under the influence of drugs?",
+		"Have you ever had intercourse under the influence of alcohol?",
+		"Have you ever had any connection with a brothel?",
+		"Are you afraid of the police?",
+		"Have you ever done anything you are afraid the police may find out?",
+		"Have you ever falsified the books in any firm you worked at?",
+		"Have you ever done anything your mother would be ashamed to find out?",
+		"Do you know any communist personally?",
+		"Do you know of any secret plans against Scientology?",
+		"Are you upset about this questionnaire?",
+		"Have you ever entered a country illegally?",
+		"Have you ever tried to act normal?",
+		"Are you guilty of anything?",
+		"Have you ever practised cannibalism?",
+		"Have you ever deserted from a military service?",
+		"Have you ever divulged government secrets for pay or political reasons?",
+		"Have you ever practised or assisted intercourse between women?",
+		"Have you ever acted as an informer?",
+		"Have you ever betrayed an employer's trust?",
+		"Have you ever speculated with somebody else's funds?",
+		"Have you ever knowingly implicated an innocent person?",
+		"Have you ever withheld a communication concerning a crime or misdemeanor committed by another?",
+		"Are my questions embarassing?",
+		"Have you ever injured somebody's reputation by knowingly spreading lies?",
+		"Have you ever injured somebody by spreading tales you knew were true?",
+		"Have you ever plotted to destroy a member of your family?",
+		"Have you ever had a member of your family in an insane asylum?",
+		"Have you ever been pronounced insane?",
+		"Have you ever conspired with anyone?",
+		"Have you ever used hypnotism to procure sex or money?",
+		"Do you have any bastards?",
+		"Have you ever crippled a person?",
+		"Have you ever pretended a disability?",
+		"Have you ever committed a misdemeanor?",
+		"Have you ever committed a felony?",
+		"Have you ever committed a capital offense?",
+		"Have you ever criminally avoided taxes?",
+		"Have you ever counterfeited money?",
+		"Have you ever obtained money under false pretences?",
+		"Do you have anything in your possession you shouldn't have?",
+		"Have you knowingly planned not to do your job?",
+		"Do you deserve to be helped?",
+		"Have you coughed or distracted others during a lecture?",
+		"Have you ever decided you did not like some member of your family?",
+		"Have you ever gotten yourself dirty on purpose?",
+		"Have you ever bullied a smaller child?",
+		"Have you ever deliberately got a child or an adult into trouble?",
+		"Have you ever pestered someone who was trying to work?",
+		"Have you ever deliberately spoiled clothing of yours because you didn't like it?",
+		"Have you ever noticed something wrong with your body that you were afraid to tell anybody about?",
+		"Is there anything about you your parents could not understand, even if you told them?",
+		"Have you ever failed to finish your schoolwork on time?",
+		"Have you ever deliberately given a teacher trouble?",
+		"Have you ever flunked an examination at school?",
+		"Have you ever lied to a teacher?",
+		"Have you ever cheated by copying someone else's work, taking notes into an examination, or looking up answers in a book when you weren't supposed to?",
+		"Have you ever done anything you were very much ashamed of?",
+		"Have you ever forgotten to give food or water to a pet entrusted to your care?",
+		"Have you ever been late to school, or late to a class?",
+		"Have you ever stayed away from school, when you could have gone?",
+		"Have you ever done something you shouldn't when you were supposed to be in bed or asleep?",
+		"have you ever told bad stories about someone?",
+		"Have you ever tried to make others believe that your parents or teachers were cruel to you?",
+		"Have you ever felt that your parents and home were too good for you?",
+		"Is there anything you should tell your parents, and never have?",
+		"Have you ever done anything to someone else's body that you shouldn't have?",
+		"Have you ever told anyone that you did something, when you hadn't really done it?",
+		"Have you ever told anyone that you hadn't done something which you really had done?",
+		"Have you ever ganged up on another child and made fun of him because he was different from the rest of you?",
+		"Have you ever decided never to talk to someone again?",
+		"Have you ever made your parents or teachers work harder than they should?",
+		"Have you ever decided that you were too bright, or too smart for the other kids?",
+		"Have you ever annoyed an adult by something you did or said?",
+		"Have you ever hurt a child?",
+		"Have you ever made a child cry?",
+		"Have you ever made a child sulk?",
+		"Have you ever kept another child from having something that really belonged to him?",
+		"Have you ever found anything and failed to return it to its owner?",
+		"Have you ever lied to escape blame?",
+		"Have you ever told stories about someone behind their back?",
+		"Have you ever not told the whole truth about something so as to protect someone?",
+		"Have you ever felt ashamed of your parents?",
+		"Have you ever disappointed your parents?",
+		"Have you ever run away when you should have stayed?",
+		"Have you ever felt sure your parents wouldn't understand something that had happened in school, so you didn't tell them?",
+		"Have you ever not told teachers something about your family because they wouldn't understand it?",
+		"Have you ever failed to keep another child's secret?",
+		"Have you ever felt it was no use talking to someone?",
+		"Have you ever been sloppy about your clothes or possessions?",
+		"Have you ever been a coward?",
+		"Have you ever teased younger children?",
+		"Have you ever hurt someone you didn't mean to?",
+		"Have you ever cried when you shouldn't have?",
+		"Have you ever made too much fuss about a little hurt?",
+		"Have you ever tried to make your parents believe you were doing better in school than you were?",
+		"Have you ever told on anyone?",
+		"Have you ever made a mess and not helped to clean it up?",
+		"Have you ever broken or damaged something and never told anybody it was you who did it?",
+		"Have you ever let someone else get punished for something you did?",
+		"Have you ever cried till you got your own way?",
+		"Have you ever picked on someone smaller than yourself?",
+		"Have you ever upset anyone by throwing a temper tantrum?",
+		"Have you ever hurt anyone by telling them you didn't love them anymore?",
+		"Have you ever pretended to like someone that you didn't like in order to satisfy your parents?",
+		"Have you ever hidden a body?"
+		
+];
+	
+	function clikk() {
+		question_suivante();
+		position_suivante();
+	}
+	
+  function question_suivante() {
+	  x = Math.floor(Math.random() * 165);
+  document.getElementById("demo").innerHTML = questions[x];
+  document.getElementById("demo2").innerHTML = y;
+	  y++;
+	  
+	  		if (y == 22) {
+		redirect();
+	}
+}
+	function position_suivante() {
+	position++;
+	}
+	
+			 
+	function redirect() {
+	window.location.href="Ending.html";
+ }
+	
+	
+
+</script>
+ 	  <p id="demo" style="position: absolute; top: 44px; left: 731px; width: 532px; height: 267px">READ EACH QUESTION CAREFULLY <br><br><br> THEN ANSWER YES OR NO<br><br><br> START NOW</p>
+	  <h3 id="demo2" style="position: absolute; top: 619px; left: 1239px; width: 42px; height: 50px"></h3>
+</body>
+</html>
